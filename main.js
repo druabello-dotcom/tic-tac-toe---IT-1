@@ -18,22 +18,22 @@ for (let i = 0; i < 9; i++) {
 	boardState.push(0);
 }
 
-function registerTurn() {
-	if (turnCounter % 2 === 0) turnDecider = 'X';
-	else turnDecider = 'O';
+let grid = Array.from(document.querySelectorAll(".tile"));
+for (let i = 0; i < 9; i++) {
+	grid[i].addEventListener("click", registerMark);
 }
 
 // game will react when tile is clicked
 function registerMark(event) {
-	let selectedTile = Number(event.target.id);
-	if (boardState[selectedTile]) return;
+	let selectedTileNumber = Number(event.target.id);
+	if (boardState[selectedTileNumber]) return;
 	
-	boardState[selectedTile] = markIdentifier[turnDecider];
+	boardState[selectedTileNumber] = markIdentifier[turnDecider];
 	turnCounter++;
 	registerTurn(turnCounter);
 }
 
-let grid = Array.from(document.querySelectorAll(".tile"));
-for (let i = 0; i < 9; i++) {
-	grid[i].addEventListener("click", registerMark);
+function registerTurn() {
+	if (turnCounter % 2 === 0) turnDecider = 'X';
+	else turnDecider = 'O';
 }
