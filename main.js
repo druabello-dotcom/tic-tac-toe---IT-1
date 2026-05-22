@@ -10,6 +10,7 @@ let markIdentifier = {
 
 // create board
 let board = document.getElementById("game-board");
+let playerTurnIndicator = document.getElementById("player-turn-indicator");
 for (let i = 0; i < 9; i++) {
 	let tile = document.createElement("div");
 	tile.classList.add("tile");
@@ -39,10 +40,14 @@ function registerTurn() {
 	if (turnCounter % 2 === 0) {
 		turnDecider = 'X';
 		turnDeciderClass = "playerX";
+		playerTurnIndicator.textContent = 'X';
+		playerTurnIndicator.className = turnDeciderClass;
 	}
 	else {
 		turnDecider = 'O';
 		turnDeciderClass = "playerO";
+		playerTurnIndicator.textContent = 'O';
+		playerTurnIndicator.className = turnDeciderClass;
 	}
 }
 
