@@ -3,9 +3,11 @@ body {
 	font-family: "Itim", sans-serif;
 	font-size: xx-large;
 }
+
 p {
 	color: white;
 }
+
 :root {
 	--board-size: 300px;
 }
@@ -13,6 +15,7 @@ p {
 .playerX {
 	color: aqua;
 }
+
 .playerO {
 	color: burlywood;
 }
