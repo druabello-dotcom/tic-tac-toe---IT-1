@@ -1,4 +1,5 @@
 let turnDecider = 'X';
+let turnDeciderClass = "playerX";
 let turnCounter = 0;
 let gameActive = true;
 let boardState = [];
@@ -30,10 +31,23 @@ function registerMark(event) {
 	
 	boardState[selectedTileNumber] = markIdentifier[turnDecider];
 	turnCounter++;
+	displayMark(selectedTileNumber);
 	registerTurn(turnCounter);
 }
 
 function registerTurn() {
-	if (turnCounter % 2 === 0) turnDecider = 'X';
-	else turnDecider = 'O';
+	if (turnCounter % 2 === 0) {
+		turnDecider = 'X';
+		turnDeciderClass = "playerX";
+	}
+	else {
+		turnDecider = 'O';
+		turnDeciderClass = "playerO";
+	}
+}
+
+function displayMark(stn) {
+	let markTile = grid[stn];
+	markTile.textContent = turnDecider;
+	markTile.classList.add(turnDeciderClass);
 }
