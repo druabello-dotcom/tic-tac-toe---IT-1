@@ -11,6 +11,7 @@ let markIdentifier = {
 // create board
 let board = document.getElementById("game-board");
 let playerTurnIndicator = document.getElementById("player-turn-indicator");
+let grid = [];
 for (let i = 0; i < 9; i++) {
 	let tile = document.createElement("div");
 	tile.classList.add("tile");
@@ -18,10 +19,8 @@ for (let i = 0; i < 9; i++) {
 
 	board.appendChild(tile);
 	boardState.push(0);
-}
 
-let grid = Array.from(document.querySelectorAll(".tile"));
-for (let i = 0; i < 9; i++) {
+	grid.push(tile);
 	grid[i].addEventListener("click", registerMark);
 }
 
