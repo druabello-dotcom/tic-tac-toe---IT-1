@@ -63,6 +63,8 @@ function displayMark(stn) {
 
 function checkGameState() {
 	//check vertcally
+	if (turnCounter === 9) declareTerminalState();
+
 	for (let i = 0; i < 3; i++) {
 		let initMark = boardState[i];
 		let identicalCounter = 0;
