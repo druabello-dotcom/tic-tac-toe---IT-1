@@ -24,8 +24,38 @@ p {
 	color: burlywood;
 }
 
+#main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-height: fit-content;
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+#game-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+#display-player-turn {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: calc(var(--board-size) / 5);
+}
+
+#display-player-turn p {
+	margin: 0;
+}
+
 #game-board {
-	margin: 0 auto;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: repeat(3, 1fr);
