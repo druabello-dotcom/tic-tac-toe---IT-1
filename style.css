@@ -6,6 +6,13 @@ body {
 p {
 	color: white;
 }
+button {
+	outline: none;
+	background: none;
+	padding: 0;
+	border: none;
+	position: relative;
+}
 :root {
 	--board-size: 300px;
 	--def-border-radius: 2mm;
@@ -73,7 +80,6 @@ p {
 	top: 50%;
     left: 50%;
 	transform: translate(-50%, -50%);
-	
 
 	width: calc(var(--board-size) * 1.5);
 	border-radius: var(--def-border-radius);
@@ -87,7 +93,7 @@ p {
 	justify-content: center;
 	font-size: 3rem;
 
-	background-color: cornflowerblue;
+	background-color: darkseagreen;
 	color: white;
 	border-top-left-radius: var(--def-border-radius);
 	border-top-right-radius: var(--def-border-radius);
@@ -103,4 +109,27 @@ p {
 	border-bottom-left-radius: var(--def-border-radius);
 	border-bottom-right-radius: var(--def-border-radius);
 	margin: 0;
+	padding: 0.5rem;
+}
+.top-layer-button {
+	font-size: 1em;
+	color: black;
+	width: 100%;
+	padding-top: 0.75em;
+	padding-bottom: 0.75em;
+	padding-right: var(--button-padding);
+	padding-left: var(--button-padding);
+	cursor: pointer;
+
+	background-color: rgb(251, 255, 253);
+	font-family: "Itim", sans-serif;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	border-radius: 2.5mm;
+	outline: 2px solid rgb(36, 38, 34);
+
+	transition: 0.2s;
 }
