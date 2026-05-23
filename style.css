@@ -12,6 +12,10 @@ p {
 	--board-size: 300px;
 }
 
+#player-turn-indicator {
+	font-size: 3rem;
+}
+
 .playerX {
 	color: aqua;
 }
@@ -33,6 +37,7 @@ p {
 	min-width: calc(var(--board-size) / 3);
 	cursor: pointer;
 
+	font-size: 4rem;
 	border: 1px solid white;
 	display: flex;
 	justify-content: center;
