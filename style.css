@@ -3,13 +3,12 @@ body {
 	font-family: "Itim", sans-serif;
 	font-size: xx-large;
 }
-
 p {
 	color: white;
 }
-
 :root {
 	--board-size: 300px;
+	--def-border-radius: 2mm;
 }
 
 #player-turn-indicator {
@@ -18,17 +17,10 @@ p {
 
 .playerX {
 	color: aqua;
+	color: cadetblue;
 }
-
 .playerO {
 	color: burlywood;
-}
-
-#main {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	max-height: fit-content;
 }
 
 #main {
@@ -72,4 +64,43 @@ p {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+/* button styling */
+#declare-winner-tab {
+	z-index: 20;
+	position: fixed;
+	top: 50%;
+    left: 50%;
+	transform: translate(-50%, -50%);
+	
+
+	width: calc(var(--board-size) * 1.5);
+	border-radius: var(--def-border-radius);
+	display: flex;
+	flex-direction: column;
+
+}
+#victory-announcer h1 {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	font-size: 3rem;
+
+	background-color: cornflowerblue;
+	color: white;
+	border-top-left-radius: var(--def-border-radius);
+	border-top-right-radius: var(--def-border-radius);
+	margin: 0;
+}
+#reset-game-dwt {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-height: fit-content;
+
+	background-color: azure;
+	border-bottom-left-radius: var(--def-border-radius);
+	border-bottom-right-radius: var(--def-border-radius);
+	margin: 0;
 }
