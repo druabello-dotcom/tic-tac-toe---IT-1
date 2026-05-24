@@ -129,3 +129,23 @@ function declareTerminalState() {
 }
 
 //—————————————————————————————————————————————————————
+//functionalize reset button
+let resetGameButton = document.getElementsByClassName("reset-game");
+for (let i = 0; i < resetGameButton.length; i++) {
+	resetGameButton[i].addEventListener("click", resetMarks)
+}
+
+async function resetMarks() {
+	await wait(125);
+	for (let i = 0; i < 9; i++) {
+		boardState[i] = 0;
+		grid[i].textContent = "";
+		grid[i].className = "tile";
+	}
+	turnCounter = 0;
+	turnDecider = 'X';
+	turnDeciderClass = "playerX";
+	playerTurnIndicator.textContent = 'X';
+	playerTurnIndicator.className = turnDeciderClass;
+	document.getElementById("declare-winner-tab").style.display = "none";
+}

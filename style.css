@@ -82,7 +82,7 @@ button:active .top-layer-button {
 	position: fixed;
 	top: 50%;
     left: 50%;
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, 100%);
 
 	width: calc(var(--board-size) * 1.5);
 	border-radius: var(--def-border-radius);
