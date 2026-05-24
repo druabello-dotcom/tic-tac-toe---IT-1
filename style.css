@@ -13,6 +13,9 @@ button {
 	border: none;
 	position: relative;
 }
+button:active .top-layer-button {
+	transform: translateY(0.15rem);
+}
 :root {
 	--board-size: 300px;
 	--def-border-radius: 2mm;
@@ -75,7 +78,7 @@ button {
 
 /* button styling */
 #declare-winner-tab {
-	z-index: 20;
+	z-index: 10;
 	position: fixed;
 	top: 50%;
     left: 50%;
@@ -117,8 +120,6 @@ button {
 	width: 100%;
 	padding-top: 0.75em;
 	padding-bottom: 0.75em;
-	padding-right: var(--button-padding);
-	padding-left: var(--button-padding);
 	cursor: pointer;
 
 	background-color: rgb(251, 255, 253);
@@ -128,8 +129,29 @@ button {
 	align-items: center;
 	justify-content: center;
 
-	border-radius: 2.5mm;
+	position: relative;
+	z-index: 2;
+
+	border-radius: var(--def-border-radius);
 	outline: 2px solid rgb(36, 38, 34);
 
 	transition: 0.2s;
+}
+.bottom-layer-button {
+	width: 100%;
+	transform: translateY(-2.3em);
+	margin-bottom: -2.3em;
+	padding-top: 1em;
+	padding-bottom: 1.5em;
+
+	background-color: beige;
+	font-family: monospace;
+
+	position: relative;
+	z-index: 1;	
+
+	border-radius: var(--def-border-radius);
+	outline: 2px solid rgb(36, 38, 34);
+
+	box-shadow: 0px 0.15em 0px 0.125em rgb(171, 171, 171);
 }
