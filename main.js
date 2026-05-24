@@ -29,10 +29,7 @@ for (let i = 0; i < 9; i++) {
 //—————————————————————————————————————————————————————
 
 // game will react when tile is clicked
-function wait(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-async function registerMark(event) {
+function registerMark(event) {
 	let selectedTileNumber = Number(event.target.id);
 	if (boardState[selectedTileNumber]) return;
 	
@@ -40,8 +37,7 @@ async function registerMark(event) {
 	turnCounter++;
 	displayMark(selectedTileNumber);
 	checkGameState();
-	await wait(50);
-	registerTurn();
+	setTimeout(() => registerTurn(), 50);
 }
 
 function registerTurn() {
@@ -135,8 +131,7 @@ for (let i = 0; i < resetGameButton.length; i++) {
 	resetGameButton[i].addEventListener("click", resetMarks)
 }
 
-async function resetMarks() {
-	await wait(125);
+function resetMarks() {
 	for (let i = 0; i < 9; i++) {
 		boardState[i] = 0;
 		grid[i].textContent = "";
@@ -147,5 +142,7 @@ async function resetMarks() {
 	turnDeciderClass = "playerX";
 	playerTurnIndicator.textContent = 'X';
 	playerTurnIndicator.className = turnDeciderClass;
-	document.getElementById("declare-winner-tab").style.display = "none";
+	setTimeout(() => {
+		document.getElementById("declare-winner-tab").style.display = "none";
+	}, 125);
 }
