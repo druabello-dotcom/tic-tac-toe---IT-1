@@ -86,7 +86,7 @@ button:active .top-layer-button {
 
 	width: calc(var(--board-size) * 1.5);
 	border-radius: var(--def-border-radius);
-	display: flex;
+	display: none;
 	flex-direction: column;
 
 }
@@ -112,7 +112,7 @@ button:active .top-layer-button {
 	border-bottom-left-radius: var(--def-border-radius);
 	border-bottom-right-radius: var(--def-border-radius);
 	margin: 0;
-	padding: 0.5rem;
+	padding: 1rem;
 }
 .top-layer-button {
 	font-size: 1em;

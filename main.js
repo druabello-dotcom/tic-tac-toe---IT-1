@@ -115,7 +115,7 @@ function checkGameState() {
 }
 
 function declareTerminalState() {
-	document.body.style.backgroundColor = "red";
+	document.getElementById("declare-winner-tab").style.display = "flex";
 }
 
 //—————————————————————————————————————————————————————
