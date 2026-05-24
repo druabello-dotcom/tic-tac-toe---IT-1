@@ -29,7 +29,10 @@ for (let i = 0; i < 9; i++) {
 //—————————————————————————————————————————————————————
 
 // game will react when tile is clicked
-function registerMark(event) {
+function wait(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+async function registerMark(event) {
 	let selectedTileNumber = Number(event.target.id);
 	if (boardState[selectedTileNumber]) return;
 	
@@ -37,6 +40,7 @@ function registerMark(event) {
 	turnCounter++;
 	displayMark(selectedTileNumber);
 	checkGameState();
+	await wait(50);
 	registerTurn();
 }
 
