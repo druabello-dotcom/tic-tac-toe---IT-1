@@ -36,8 +36,8 @@ function registerMark(event) {
 	boardState[selectedTileNumber] = markIdentifier[turnDecider];
 	turnCounter++;
 	displayMark(selectedTileNumber);
-	registerTurn();
 	checkGameState();
+	registerTurn();
 }
 
 function registerTurn() {
@@ -116,6 +116,9 @@ function checkGameState() {
 
 function declareTerminalState() {
 	document.getElementById("declare-winner-tab").style.display = "flex";
+	let winnerText = document.querySelector("#victory-announcer h1 span");
+	winnerText.textContent = `${turnDecider}`;
+	winnerText.className = turnDeciderClass;
 }
 
 //—————————————————————————————————————————————————————
