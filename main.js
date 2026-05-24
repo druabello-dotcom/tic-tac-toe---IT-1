@@ -123,6 +123,9 @@ function declareTerminalState() {
 	let winnerText = document.querySelector("#victory-announcer h1 span");
 	winnerText.textContent = `${turnDecider}`;
 	winnerText.className = turnDeciderClass;
+	for (let i = 0; i < 9; i++) {
+		boardState[i] = 1;
+	}
 }
 
 //—————————————————————————————————————————————————————
