@@ -13,6 +13,7 @@ let markIdentifier = {
 // create board
 let board = document.getElementById("game-board");
 let playerTurnIndicator = document.getElementById("player-turn-indicator");
+const grid = [];
 for (let i = 0; i < 9; i++) {
 	let tile = document.createElement("div");
 	tile.classList.add("tile");
@@ -60,14 +61,15 @@ function displayMark(stn) {
 }
 
 function checkGameState() {
-	//check vertcally
+	let tiles = document.querySelectorAll(".tile");
 	if (turnCounter === 9) declareTerminalState();
-
+	
+	//check vertcally
 	for (let i = 0; i < 3; i++) {
-		let initMark = boardState[i];
+		let initMark = tiles[i].textContent;
 		let identicalCounter = 0;
 		for (let t = i; t <= (i + 6); t+=3) {
-			if (boardState[t] === initMark && boardState[t]) identicalCounter++;
+			if (tiles[t].textContent === initMark && tiles[t].textContent !== "") identicalCounter++;
 		}
 
 		if (identicalCounter === 3) {
@@ -78,10 +80,10 @@ function checkGameState() {
 
 	//check horizontally
 	for (let i = 0; i <= 6; i+=3) {
-		let initMark = boardState[i];
+		let initMark = tiles[i].textContent;
 		let identicalCounter = 0;
 		for (let t = i; t < (i + 3); t++) {
-			if (boardState[t] === initMark && boardState[t]) identicalCounter++;
+			if (tiles[t].textContent === initMark && tiles[t].textContent !== "") identicalCounter++;
 		}
 
 		if (identicalCounter === 3) {
@@ -91,20 +93,20 @@ function checkGameState() {
 	}
 
 	//check diagonally
-	let initMark = boardState[0];
+	let initMark = tiles[0].textContent;
 	let identicalCounter = 0;
 	for (let i = 0; i < 9; i+=4) {
-		if (boardState[i] === initMark && boardState[i]) identicalCounter++;
+		if (tiles[i].textContent === initMark && tiles[i].textContent !== "") identicalCounter++;
 	}
 	if (identicalCounter === 3) {
 		declareTerminalState();
 		return;
 	}
 
-	initMark = boardState[2];
+	initMark = tiles[2].textContent;
 	identicalCounter = 0;
 	for (let i = 2; i <= 6; i+=2) {
-		if (boardState[i] === initMark && boardState[i]) identicalCounter++;
+		if (tiles[i].textContent === initMark && tiles[i].textContent !== "") identicalCounter++;
 	}
 	if (identicalCounter === 3) {
 		declareTerminalState();
