@@ -2,8 +2,8 @@ let turnDecider = 'X';
 let turnDeciderClass = "playerX";
 let turnCounter = 0;
 let gameActive = true;
-let boardState = [];
-let markIdentifier = {
+const boardState = [];
+const markIdentifier = {
 	X: 1,
 	O: 2
 }
@@ -11,8 +11,8 @@ let markIdentifier = {
 //—————————————————————————————————————————————————————
 
 // create board
-let board = document.getElementById("game-board");
-let playerTurnIndicator = document.getElementById("player-turn-indicator");
+const board = document.getElementById("game-board");
+const playerTurnIndicator = document.getElementById("player-turn-indicator");
 const grid = [];
 for (let i = 0; i < 9; i++) {
 	let tile = document.createElement("div");
@@ -29,7 +29,7 @@ for (let i = 0; i < 9; i++) {
 
 // game will react when tile is clicked
 function registerMark(event) {
-	let selectedTileNumber = Number(event.target.id);
+	const selectedTileNumber = Number(event.target.id);
 	if (boardState[selectedTileNumber]) return;
 	
 	boardState[selectedTileNumber] = markIdentifier[turnDecider];
@@ -116,7 +116,7 @@ function checkGameState() {
 
 function declareTerminalState() {
 	document.getElementById("declare-winner-tab").style.display = "flex";
-	let winnerText = document.querySelector("#victory-announcer h1 span");
+	const winnerText = document.querySelector("#victory-announcer h1 span");
 	winnerText.textContent = `${turnDecider}`;
 	winnerText.className = turnDeciderClass;
 	for (let i = 0; i < 9; i++) {
@@ -126,7 +126,7 @@ function declareTerminalState() {
 
 //—————————————————————————————————————————————————————
 //functionalize reset button
-let resetGameButton = document.getElementsByClassName("reset-game");
+const resetGameButton = document.getElementsByClassName("reset-game");
 for (let i = 0; i < resetGameButton.length; i++) {
 	resetGameButton[i].addEventListener("click", resetMarks)
 }
@@ -134,7 +134,7 @@ for (let i = 0; i < resetGameButton.length; i++) {
 function resetMarks() {
 	for (let i = 0; i < 9; i++) {
 		boardState[i] = 0;
-		let currTile = document.querySelectorAll(".tile")[i];
+		const currTile = document.querySelectorAll(".tile")[i];
 		currTile.textContent = "";
 		currTile.className = "tile";
 	}
