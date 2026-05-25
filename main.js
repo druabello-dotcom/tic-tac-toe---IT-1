@@ -13,7 +13,6 @@ let markIdentifier = {
 // create board
 let board = document.getElementById("game-board");
 let playerTurnIndicator = document.getElementById("player-turn-indicator");
-let grid = [];
 for (let i = 0; i < 9; i++) {
 	let tile = document.createElement("div");
 	tile.classList.add("tile");
@@ -22,8 +21,7 @@ for (let i = 0; i < 9; i++) {
 	board.appendChild(tile);
 	boardState.push(0);
 
-	grid.push(tile);
-	grid[i].addEventListener("click", registerMark);
+	tile.addEventListener("click", registerMark);
 }
 
 //—————————————————————————————————————————————————————
@@ -56,7 +54,7 @@ function registerTurn() {
 }
 
 function displayMark(stn) {
-	let markTile = grid[stn];
+	let markTile = document.querySelectorAll(".tile")[stn];
 	markTile.textContent = turnDecider;
 	markTile.classList.add(turnDeciderClass);
 }
@@ -134,8 +132,9 @@ for (let i = 0; i < resetGameButton.length; i++) {
 function resetMarks() {
 	for (let i = 0; i < 9; i++) {
 		boardState[i] = 0;
-		grid[i].textContent = "";
-		grid[i].className = "tile";
+		let currTile = document.querySelectorAll(".tile")[i];
+		currTile.textContent = "";
+		currTile.className = "tile";
 	}
 	turnCounter = 0;
 	turnDecider = 'X';
